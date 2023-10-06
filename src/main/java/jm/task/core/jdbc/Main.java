@@ -34,5 +34,7 @@ public class Main {
 
         userServiceImpl.dropUsersTable();                                        //5.
 
+        Util.closeConnection();
+
     }
 }

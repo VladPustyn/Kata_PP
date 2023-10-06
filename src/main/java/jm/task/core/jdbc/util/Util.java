@@ -15,7 +15,7 @@ public class Util {
     private static Connection connection;
 
     public static Connection getConnection() {
-           Connection connection = null;
+        Connection connection = null;
         try {
             Class.forName(DB_DRIVER);
             connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
@@ -25,13 +25,13 @@ public class Util {
         return Util.connection = connection;
     }
 
-    public static void closeConnection(Connection connection) {
-        if (connection != null) {
-            try {
-                connection.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+
+    public static void closeConnection() {
+        try {
+            connection.close();
+            System.out.println("Соединение закрыто");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 }
